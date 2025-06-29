@@ -1,3 +1,6 @@
+import os
+from dotenv import load_dotenv
+
 from datetime import datetime, timedelta
 from typing import Optional
 
@@ -9,7 +12,8 @@ from fastapi.security import OAuth2PasswordBearer
 
 from . import schemas
 
-SECRET_KEY = "your-secret-key"
+load_dotenv()
+SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
